@@ -1,5 +1,5 @@
 // import modules
-import https from "https"; // native module
+import http from "http"; // native module
 import express from "express";
 import fs from "fs";
 import { WebSocketServer } from "ws";
@@ -23,11 +23,12 @@ const app = express();
 app.use(express.static("public"));
 
 // create an HTTP server, and pass our express application into our server
-const server = https.createServer(
-    {
-    key: fs.readFileSync("localhost-key.pem"),
-    cert: fs.readFileSync("localhost.pem")
-}, app);
+const server = http.createServer(
+    // {
+    // key: fs.readFileSync("localhost-key.pem"),
+    // cert: fs.readFileSync("localhost.pem")
+// }, 
+app);
 
 // server static html file
 app.get('/', (req, res) => {
